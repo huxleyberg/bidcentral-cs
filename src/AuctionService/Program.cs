@@ -20,4 +20,13 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+try
+{
+    DbInitializer.InitDb(app);
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Error seeding the database: {ex.Message}");
+}
+
 app.Run();
